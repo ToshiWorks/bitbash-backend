@@ -14,12 +14,28 @@ app.secret_key = "super_secret_bitbash_key"
 #     allow_headers=["Content-Type"]
 # )
 
+# CORS(
+#     app,
+#     supports_credentials=True,
+#     origins=[
+#         "http://localhost:5173",  # for local testing
+#     ]
+# )
+
+# CORS(
+#     app,
+#     origins=[
+#         "http://localhost:5173",
+#         "https://bitbash-frontend.vercel.app"
+#     ],
+#     methods=["GET", "POST", "OPTIONS"],
+#     allow_headers=["Content-Type"]
+# )
+
 CORS(
     app,
-    supports_credentials=True,
-    origins=[
-        "http://localhost:5173",  # for local testing
-    ]
+    resources={r"/*": {"origins": "*"}},
+    supports_credentials=True
 )
 
 MAX_SCORE = 100
