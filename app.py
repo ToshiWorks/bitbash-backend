@@ -32,11 +32,13 @@ app.secret_key = "super_secret_bitbash_key"
 #     allow_headers=["Content-Type"]
 # )
 
-CORS(
-    app,
-    resources={r"/*": {"origins": "*"}},
-    supports_credentials=True
-)
+# CORS(
+#     app,
+#     resources={r"/*": {"origins": "*"}},
+#     supports_credentials=True
+# )
+
+CORS(app, supports_credentials=True)
 
 MAX_SCORE = 100
 START_SCORE = 50
@@ -172,3 +174,4 @@ def evaluate_c_code(topic, code, attempts):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
